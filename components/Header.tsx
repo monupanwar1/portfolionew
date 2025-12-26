@@ -1,51 +1,44 @@
-import Logo from "@/mynaui/Logo";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu } from "@mynaui/icons-react";
 
-export default function CenteredPill() {
+export default function Header() {
   return (
     <header className="p-4">
       <div className="mx-auto flex max-w-2xl items-center justify-between space-x-4 rounded-full border bg-background p-1.5 pl-4">
-        <Logo />
         <div className="hidden md:inline-flex">
           <a
-            href="#"
+            href="/services"
             className={buttonVariants({ variant: "ghost", size: "sm" })}
           >
-            Features
+           Services
           </a>
           <a
             href="#"
             className={buttonVariants({ variant: "ghost", size: "sm" })}
           >
-            Pricing
+            Works
           </a>
           <a
             href="#"
             className={buttonVariants({ variant: "ghost", size: "sm" })}
           >
-            Blog
+           About
           </a>
           <a
             href="#"
             className={buttonVariants({ variant: "ghost", size: "sm" })}
           >
-            Company
+            Contact
           </a>
-          <a
-            href="#"
-            className={buttonVariants({ variant: "ghost", size: "sm" })}
-          >
-            Sign in
-          </a>
+         
         </div>
         <div className="hidden md:inline-flex">
           <a
             href="#"
             className={cn(buttonVariants({ size: "sm" }), "rounded-full")}
           >
-            Get Started
+            Downlaod Resume
           </a>
         </div>
         <button className="inline-flex px-2 py-1.5 md:hidden">
