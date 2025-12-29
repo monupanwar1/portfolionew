@@ -3,6 +3,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
+import ScrollImages from './ScrollImage';
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -186,6 +187,7 @@ export default function ServicesSection() {
           </div>
         </div>
       </div>
+     
     </section>
   );
 }
