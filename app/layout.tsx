@@ -26,7 +26,8 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} w-full flex flex-col justify-center bg-[#E8E8E3] overflow-hidden min-h-screen
+         antialiased`}
       >
         <SmoothScroll>{children}</SmoothScroll>
       </body>

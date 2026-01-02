@@ -4,7 +4,7 @@ import SocialNavigation from './SocialsNavigation';
 
 export default function Footer() {
   return (
-    <section className='p-10'>
+    <section className='p-10 w-full'>
       {/* {--top--} */}
       <div className='grid grid-cols-[50%_50%] md:grid-cols-[40%_30%_30%] gap-8 px-4 '>
         <div className='col-span-1 '>

@@ -1,6 +1,6 @@
 function Herosection() {
   return (
-    <main className='flex  flex-col items-center  justify-center'>
+    <main className='flex w-full flex-col items-center  justify-center'>
       <section className='relative'>
         {/* BIG NAME */}
         <h1
