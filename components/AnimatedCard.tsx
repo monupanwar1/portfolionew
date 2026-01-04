@@ -91,17 +91,17 @@ export default function AnimatedCard() {
     });
 
     tl.to('.card', {
-      height: 890,
+      height: 330,
       stagger: 0.7,
       ease: 'none',
     })
   });
 
   return (
-    <section className='bg-black'>
+    <section className='bg-black min-h-screen'>
       <div className='cards-wrapper p-4 grid grid-cols-1 min-h-screen gap-10 overflow-hidden'>
         {cards.map((card, index) => (
-          <div key={index} className='card border-t h-40 overflow-hidden'>
+          <div key={index} className='card border-t h-40 bg-amber-500 overflow-hidden'>
             <div className='flex items-center justify-center'>
               <h1 className='font-bold text-4xl'>{card.number}</h1>
               <h1 className='font-bold text-4xl'>{card.title}</h1>
