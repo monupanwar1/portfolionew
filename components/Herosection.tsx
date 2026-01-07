@@ -1,53 +1,66 @@
+import Image from 'next/image';
+
 function Herosection() {
   return (
-    <main className='flex w-full flex-col items-center  justify-center'>
-      <section className='relative'>
-        {/* BIG NAME */}
-        <h1
-          className='font-extrabold text-[6vh] md:text-[18vh] w-full lg:text-[20vh] 
-        '
-        >
-          MONU PANWAR
+    <main className='flex w-full flex-col p-4 space-y-10 md:space-y-24 min-h-screen'>
+      <section className='relative flex flex-col justify-center gap-4 '>
+        <h4 className='font-extrabold  text-2xl md:text-3xl lg:text-5xl'>
+          (MONU PANWAR)
+        </h4>
+        <h1 className='capitalize text-center font-extrabold text-4xl md:text-8xl'>
+          FULL-STACK DEVELOPER
         </h1>
       </section>
 
       {/* content */}
-      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10 p-8'>
+      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10 p-4'>
         {/* LEFT TEXT */}
         <div className='lg:col-span-4 space-y-6 max-w-4xl'>
-          <div className='text-2xl opacity-60'>↘</div>
+          <div className='text-2xl opacity-60'>
+            <Image src='/arrowdown.svg' alt='arrowup' height={4} width={20} />
+          </div>
 
           <h6 className='text-3xl opacity-70 max-w-4xl'>
-            Open to job opportunities worldwide.Passionate about building
-            polished, intuitive, and thoughtful digital experiences that leave a
-            mark.
+            Building scalable, high-performance production-ready web
+            applications with clean, maintainable code from frontend to backend.
           </h6>
 
           <button
-            className='
-          inline-flex items-center gap-2
-          rounded-full bg-black px-6 py-3
-          text-white text-sm
-        '
+            className='group inline-flex items-center gap-2
+              rounded-full bg-black px-6 py-3
+             text-white text-sm
+             transition-transform duration-300 ease-out
+             hover:scale-105'
           >
-            CONTACT <span>↗</span>
+            CONTACT
+            <span
+              className='
+          transition-transform duration-300
+          group-hover:translate-x-1
+         group-hover:-translate-y-1
+    '
+            >
+              ↗
+            </span>
           </button>
         </div>
 
         {/* IMAGE */}
         <div className='lg:col-span-4 flex justify-center'>
           <div
-            className=' w-80 h-100
+            className=' w-84 h-105
           max-w-[320px]
          sm:max-w-90
           overflow-hidden
           rounded-xl
-          bg-gray-300'
+          bg-gray-300 '
           >
-            <img
-              src='/hero.jpg'
+            <Image
+              src='/boy.jpg'
               alt='Hero'
-              className='w-full h-full object-cover grayscale'
+              height={90}
+              width={820}
+              className='w-full h-full object-cover grayscale '
             />
           </div>
         </div>

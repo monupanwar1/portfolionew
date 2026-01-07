@@ -1,3 +1,5 @@
+import { TextRoll } from "@/hooks/TextRoll";
+
 const skills = [
   {
     title: 'Languages & Tools',
@@ -33,12 +35,16 @@ export default function SkillsSection() {
             {skills.map((item, index) => (
               <div className='space-x-3 ' key={index}>
                 <div className='md:w-41 md:flex hidden space-x-6'>
-                  <h1 className='mb-'>{item.title}</h1>
+                  <h1 className='mb-'>
+                    <TextRoll center>{item.title}</TextRoll>
+                  </h1>
                 </div>
                 <div className='flex flex-col justify-center items-start space-x-14 space-y-1 mt-4'>
                   {item.description.map((item, index) => (
                     <ul key={item}>
-                      <li>{item}</li>
+                      <li>
+                        <TextRoll center>{item}</TextRoll>
+                      </li>
                     </ul>
                   ))}
                 </div>

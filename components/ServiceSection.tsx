@@ -60,10 +60,10 @@ export default function ServicesSection() {
 
   return (
     <Element name='service'>
-      <section id='service' className='p-10'>
+      <section id='service '>
         <div
           id='services'
-          className='relative bg-black rounded-4xl text-white min-h-screen px-4 overflow-hidden'
+          className='relative bg-black  text-white  px-4 overflow-hidden'
         >
           {/* service----heading */}
           <div className='grid grid-cols-1 md:grid-cols-2 p-10 mb-6 '>
@@ -85,7 +85,7 @@ export default function ServicesSection() {
               </h4>
             </div>
           </div>
-         <AnimatedCard/>
+          <AnimatedCard />
         </div>
       </section>
     </Element>
