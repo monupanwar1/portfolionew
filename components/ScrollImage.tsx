@@ -20,16 +20,16 @@ export default function ScrollStickyNormal() {
   }, [inViews]);
 
   return (
-    <section className='w-full min-h-screen pb-20 bg-black text-white flex gap-20'>
+    <section className='w-full min-h-screen pb-20 bg-[#080807] text-white flex gap-20'>
       {/* LEFT COUNTER — Sticky */}
-      <div className='w-[35%] sticky top-0 h-screen items-start hidden md:flex flex-col pl-10'>
+      <div className='w-[30%] sticky top-0 h-screen items-start hidden md:flex flex-col pl-10'>
         <h1 className='font-extrabold text-[20rem] opacity-30 leading-none'>
           {String(index + 1).padStart(2, '0')}
         </h1>
       </div>
 
       {/* RIGHT SCROLL + STICKY CARDS */}
-      <div className='w-180 flex flex-col py-10 gap-60 mx-auto md:mr-10 right-5 px-4'>
+      <div className='w-180 flex flex-col py-10 gap-40 mx-auto md:mr-10 right-5 px-4'>
         {cards.map((bg, i) => (
           <div key={i}>
             {/* Trigger */}
@@ -37,7 +37,7 @@ export default function ScrollStickyNormal() {
 
             {/* Sticky card */}
             <div
-              className={`sticky top-0 h-screen rounded-3xl shadow-xl ${bg}`}
+              className={`sticky max-w-5xl top-0 h-[75vh] md:min-h-screen rounded-3xl shadow-xl ${bg}`}
             />
           </div>
         ))}

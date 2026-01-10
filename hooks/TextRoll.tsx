@@ -1,5 +1,12 @@
 'use client';
 
+// import { cn } from '@/lib/utils';
+// import { motion } from 'framer-motion';
+
+// const STAGGER = 0.035;
+
+// const 'use client';
+
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -14,12 +21,16 @@ const TextRoll: React.FC<{
     <motion.span
       initial='initial'
       whileHover='hovered'
-      className={cn('relative block overflow-hidden', className)}
+      className={cn(
+        'relative inline-block overflow-hidden align-bottom',
+        className,
+      )}
       style={{
-        lineHeight: 0.85,
+        lineHeight: 1.2,   // ✅ IMPORTANT: allow wrapping
       }}
     >
-      <div>
+      {/* Top layer */}
+      <span className='block'>
         {children.split('').map((l, i) => {
           const delay = center
             ? STAGGER * Math.abs(i - (children.length - 1) / 2)
@@ -27,27 +38,22 @@ const TextRoll: React.FC<{
 
           return (
             <motion.span
-              variants={{
-                initial: {
-                  y: 0,
-                },
-                hovered: {
-                  y: '-100%',
-                },
-              }}
-              transition={{
-                ease: 'easeInOut',
-                delay,
-              }}
+              key={`top-${i}`}
               className='inline-block'
-              key={i}
+              variants={{
+                initial: { y: 0 },
+                hovered: { y: '-100%' },
+              }}
+              transition={{ ease: 'easeInOut', delay }}
             >
-              {l}
+              {l === ' ' ? '\u00A0' : l}
             </motion.span>
           );
         })}
-      </div>
-      <div className='absolute inset-0'>
+      </span>
+
+      {/* Bottom layer */}
+      <span className='absolute left-0 top-0 block w-full'>
         {children.split('').map((l, i) => {
           const delay = center
             ? STAGGER * Math.abs(i - (children.length - 1) / 2)
@@ -55,26 +61,19 @@ const TextRoll: React.FC<{
 
           return (
             <motion.span
-              variants={{
-                initial: {
-                  y: '100%',
-                },
-                hovered: {
-                  y: 0,
-                },
-              }}
-              transition={{
-                ease: 'easeInOut',
-                delay,
-              }}
+              key={`bottom-${i}`}
               className='inline-block'
-              key={i}
+              variants={{
+                initial: { y: '100%' },
+                hovered: { y: 0 },
+              }}
+              transition={{ ease: 'easeInOut', delay }}
             >
-              {l}
+              {l === ' ' ? '\u00A0' : l}
             </motion.span>
           );
         })}
-      </div>
+      </span>
     </motion.span>
   );
 };

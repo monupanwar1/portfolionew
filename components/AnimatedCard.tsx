@@ -281,7 +281,6 @@
 //   );
 // }
 
-
 'use client';
 
 import { useGSAP } from '@gsap/react';
@@ -306,33 +305,33 @@ const cards: Cards[] = [
     number: '(01)',
     title: 'Full-Stack Development',
     description:
-      'From frontend interactions to backend APIs, I build complete web solutions using modern stacks that are scalable and production ready.',
+      'I architect and build end-to-end, production-grade web platforms with a focus on scalability, performance, and systems that are built to last.',
     stack: [
-      { number: '01', stacks: 'React, Next.js, Tailwind' },
-      { number: '02', stacks: 'Node.js, Express, MongoDB' },
-      { number: '03', stacks: 'Docker, Firebase, REST APIs' },
+      { number: '01', stacks: 'React, Next.js, Tailwind, TypeScript' },
+      { number: '02', stacks: 'Node.js, Express, MongoDB, Prisma' },
+      { number: '03', stacks: 'Docker, Firebase, REST APIs, CI/CD' },
     ],
   },
   {
     number: '(02)',
-    title: 'UI / UX Engineering',
+    title: 'UI/UX & Frontend',
     description:
-      'I design and build smooth, accessible, and animated interfaces focused on user experience and performance.',
+      'I craft visually striking, buttery-smooth, and highly interactive user experiences that feel fast, modern, and delightful across all devices.',
     stack: [
-      { number: '01', stacks: 'Framer Motion, GSAP' },
-      { number: '02', stacks: 'Design Systems' },
-      { number: '03', stacks: 'Micro Interactions' },
+      { number: '01', stacks: 'Framer Motion, GSAP, Micro Animations' },
+      { number: '02', stacks: 'Design Systems, Responsive UI, Accessibility' },
+      { number: '03', stacks: 'Interaction Design, Motion Systems' },
     ],
   },
   {
     number: '(03)',
-    title: 'Optimization',
+    title: 'Performance',
     description:
-      'Performance tuning, bundle optimization, and algorithmic improvements for scalable applications.',
+      'I obsess over speed, efficiency, and scalability by optimizing rendering, networking, data flow, and algorithms for real-world, high-traffic applications.',
     stack: [
-      { number: '01', stacks: 'DSA & Problem Solving' },
-      { number: '02', stacks: 'Code Splitting' },
-      { number: '03', stacks: 'Caching Strategies' },
+      { number: '01', stacks: 'DSA, Problem Solving, System Thinking' },
+      { number: '02', stacks: 'Code Splitting, Lazy Loading, Bundling' },
+      { number: '03', stacks: 'Caching, CDN, Performance Profiling' },
     ],
   },
 ];
@@ -347,8 +346,8 @@ export default function AnimatedCard() {
       scrollTrigger: {
         trigger: '.cards-wrapper',
         start: 'top 15%',
-        end: () => `+=${cardElements.length * 350}`,
-        scrub: 0.8, 
+        end: () => `+=${cardElements.length * 370}`,
+        scrub: 0.8,
         pin: true,
         pinSpacing: true,
         fastScrollEnd: true,
@@ -362,7 +361,7 @@ export default function AnimatedCard() {
       tl.to(
         card,
         {
-          height: isLastCard ? 450 : 390,
+          height: isLastCard ? 480 : 500,
           ease: 'power1.inOut',
         },
         index === 0 ? 0 : `<+=0.15`,
@@ -390,8 +389,8 @@ export default function AnimatedCard() {
   };
 
   return (
-    <section className='bg-black text-white overflow-hidden px-4'>
-      <div className='cards-wrapper md:ml-2 h-300'>
+    <section className='bg-[#080807] text-white overflow-hidden px-4'>
+      <div className='cards-wrapper md:ml-2 h-400 '>
         {cards.map((card, index) => {
           const isLastCard = index === cards.length - 1;
           const isExpandedNow = expandedCard === index && isLastCard;
@@ -399,7 +398,7 @@ export default function AnimatedCard() {
           return (
             <div
               key={index}
-              className={`card relative overflow-hidden border-t border-muted-foreground ${
+              className={`card relative overflow-hidden border-t border-muted-foreground h-155  ${
                 isLastCard ? 'cursor-pointer' : ''
               }`}
               style={{
@@ -407,18 +406,20 @@ export default function AnimatedCard() {
                   isLastCard && isExpandedNow
                     ? '450px'
                     : isLastCard
-                    ? '400px'
+                    ? '450px'
                     : '104px',
                 willChange: 'height',
               }}
               onClick={isLastCard ? toggleLastCard : undefined}
             >
               {/* HEADER — ALWAYS VISIBLE */}
-              <div className='flex card-header justify-items-start items-center gap-4 md:gap-158 py-6'>
-                <h1 className='text-3xl md:text-5xl font-bold'>
+              <div className='flex card-header justify-items-start items-center gap-4 md:gap-150 py-6 md:py-6 '>
+                <h1 className='text-3xl md:text-5xl text-white/90 font-bold'>
                   {card.number}
                 </h1>
-                <h1 className='text-4xl md:text-5xl font-bold'>{card.title}</h1>
+                <h1 className='text-3xl md:text-5xl text-white/80 font-bold'>
+                  {card.title}
+                </h1>
                 {isLastCard && (
                   <span className='ml-auto text-sm opacity-60'>
                     {isExpandedNow}
@@ -431,22 +432,26 @@ export default function AnimatedCard() {
                 className='card-content opacity-100 translate-y-0'
                 style={{ willChange: 'opacity, transform' }}
               >
-                <div className='flex justify-end'>
-                  <div className='space-y-4 mt-8'>
-                    <p className='text-white/60 md:w-2xl'>{card.description}</p>
+                <div className='flex justify-end '>
+                  <div className='space-y-4 mt-4'>
+                    <p className='text-white/50 md:w-3xl font-semibold text-lg'>
+                      {card.description}
+                    </p>
                     {card.stack.map((item, i) => (
                       <div
                         key={i}
-                        className={`gap-4 flex items-center pb-2 ${
+                        className={` flex items-start space-x-6  pb-2 ${
                           i < card.stack.length - 1
                             ? 'border-b border-white/20'
                             : ''
                         }`}
                       >
-                        <span className='text-lg opacity-60'>
+                        <span className='text-sm font-bold text-white/50'>
                           {item.number}
                         </span>
-                        <h2 className='text-xl font-semibold'>{item.stacks}</h2>
+                        <h2 className='text-xl md:text-3xl text-white/70 font-bold'>
+                          {item.stacks}
+                        </h2>
                       </div>
                     ))}
                   </div>

@@ -2,86 +2,43 @@
 
 import { Element } from 'react-scroll';
 import AnimatedCard from './AnimatedCard';
-
-// gsap.registerPlugin(ScrollTrigger);
+import { TextAnimate } from './ui/text-animate';
 
 export default function ServicesSection() {
-  // useEffect(() => {
-  //   const sections = gsap.utils.toArray<HTMLElement>('#services .border-t');
-
-  //   // IMPORTANT: stack sections on top of each other
-  //   gsap.set(sections, {
-  //     position: 'absolute',
-  //     top: 0,
-  //     left: 0,
-  //     width: '100%',
-  //   });
-
-  //   // first section visible
-  //   gsap.set(sections, { yPercent: 100 });
-  //   gsap.set(sections[0], { yPercent: 0 });
-
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: '#services',
-  //       start: 'top top',
-  //       end: () => `+=${sections.length * window.innerHeight}`,
-  //       scrub: 1,
-  //       pin: true,
-  //     },
-  //   });
-
-  //   sections.forEach((section, i) => {
-  //     if (i === 0) return;
-
-  //     // pause at separator
-  //     tl.to({}, { duration: 0.6 });
-
-  //     // slide previous out, next in
-  //     tl.to(sections[i - 1], {
-  //       yPercent: -100,
-  //       duration: 1,
-  //       ease: 'power2.inOut',
-  //     }).to(
-  //       section,
-  //       {
-  //         yPercent: 0,
-  //         duration: 1,
-  //         ease: 'power2.inOut',
-  //       },
-  //       '<',
-  //     );
-  //   });
-
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((t) => t.kill());
-  //   };
-  // }, []);
-
   return (
     <Element name='service'>
       <section id='service '>
         <div
           id='services'
-          className='relative bg-black  text-white  px-4 overflow-hidden'
+          className='relative bg-[#080807]  text-white px-4 overflow-hidden'
         >
           {/* service----heading */}
-          <div className='grid grid-cols-1 md:grid-cols-2 p-10 mb-6 '>
-            <div>
-              <h1 className='font-extrabold text-6xl/relaxed'>
-                what should i do
-              </h1>
+          <div className='grid grid-cols-1 md:grid-cols-2 p-4 mb-6 '>
+            <div className=''>
+              <TextAnimate
+                className='font-bold  text-white text-5xl md:text-8xl'
+                animation='blurInUp'
+                by='word'
+              >
+                WHAT I DO /
+              </TextAnimate>
             </div>
             <div
-              className='px-4 flex h-full justify-end col-span-10 mt-20 space-x-4
+              className='md:inline-flex mt-4 md:mt-34 space-x-10  text-white/80
         '
             >
-              <h3>(services)</h3>
-              <h4 className='overflow-hidden text-lg/relaxed'>
-                I specialize inbuilding full-stack webapplications <br />{' '}
-                thatarefast ,reliable,anduser-friendly.Witha <br />
-                solid foundation inbothfrontend and backend <br />
-                technologies,Ihelpbringideastolifewhetherit'sforabusiness,astartup,oraproductteam.
+              <h3 className='text-white font-medium text-xl'>
+                <TextAnimate animation='blurInUp' by='word'>
+                  (services)
+                </TextAnimate>
+              </h3>
+              <h4 className='overflow-hidden text-xl/relaxed font-semibold md:pr-20 '>
+                <TextAnimate animation='slideUp' by='word'>
+                  I specialize inbuilding full-stack web applications that are
+                  fast, reliable , and user-friendly.With a solid foundation in
+                  both frontend and backend technologies , I help bring ideas to
+                  life whether it's for a business,a startup,or a product team.
+                </TextAnimate>
               </h4>
             </div>
           </div>
