@@ -6,7 +6,7 @@ import { TextAnimate } from './ui/text-animate';
 
 export default function ServicesSection() {
   return (
-    <Element name='service'>
+    <Element name='services'>
       <section id='service '>
         <div
           id='services'

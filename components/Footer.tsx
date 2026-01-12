@@ -1,7 +1,6 @@
 import Clock from './Clock';
 import MenuNavigation from './MenuNavigation';
 import SocialNavigation from './SocialsNavigation';
-import { MagicCard } from './ui/magic-card';
 
 export default function Footer() {
   return (

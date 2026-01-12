@@ -44,7 +44,7 @@ export default function SkillsSection() {
           </h1>
         </div>
         <div className='items-center flex flex-col order-1 md:order-2 justify-center mb-20 px-4'>
-          <h1 className='font-bold text-5xl md:text-7xl text-white mb-18'>
+          <h1 className='font-bold text-6xl md:text-7xl text-white mb-18'>
             Skills
           </h1>
 
@@ -54,7 +54,7 @@ export default function SkillsSection() {
                 <div className='md:w-44 md:flex hidden space-x-6'>
                   <h1 className='font-bold text-xl'>{item.title}</h1>
                 </div>
-                <div className='flex flex-col h-auto justify-center items-start space-x-8 space-y-3 mt-4'>
+                <div className='flex flex-col  h-auto justify-center items-start space-x-10 space-y-3 mt-4'>
                   {item.description.map((item, index) => (
                     <ul key={item}>
                       <li className='mb-2 font-normal text-sm md:text-xl'>

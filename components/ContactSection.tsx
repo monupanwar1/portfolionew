@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { Element } from 'react-scroll';
 import { Button } from './ui/button';
 import {
@@ -9,16 +9,23 @@ import {
   CardTitle,
 } from './ui/card';
 import { Input } from './ui/input';
+import { TextAnimate } from './ui/text-animate';
 import { Textarea } from './ui/textarea';
 
 export default function ContactSection() {
   return (
     <Element name='contact'>
-      <section id='contact' className='p-10'>
+      <section id='contact' className='p-4'>
         <div className='p-4 bg-[#0C0C0B] min-h-screen rounded-sm flex items-center justify-center flex-col'>
           <div>
-            <h1 className='font-bold text-8xl line-clamp-3  text-center text-white'>
-              LET'S MAKE <br /> IT HAPPEN
+            <h1 className='font-bold text-6xl md:text-8xl md:w-2xl text-center text-white'>
+              <TextAnimate
+                className='font-bold  text-white text-5xl md:text-7xl'
+                animation='blurInUp'
+                by='word'
+              >
+                LET'S MAKE IT HAPPEN
+              </TextAnimate>
             </h1>
           </div>
           <Card className='w-full bg-[#22211E] mt-20 max-w-xl h-150 mb-20 px-6 border-0 outline-1'>
@@ -28,7 +35,7 @@ export default function ContactSection() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form className='border border-none  '>
+              <form className='border border-none text-white  '>
                 <div className='flex flex-col gap-12'>
                   <div className='grid '>
                     <Input

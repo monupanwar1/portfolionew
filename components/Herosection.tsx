@@ -1,39 +1,44 @@
+'use client';
 import Image from 'next/image';
+import { Element, Link } from 'react-scroll';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 import { TextAnimate } from './ui/text-animate';
+import { ArrowUpRight } from 'lucide-react';
 
 function Herosection() {
   return (
-    <main className='flex w-full flex-col p-4 space-y-10 md:space-y-24 min-h-screen'>
-      <section className='relative flex flex-col justify-center gap-4 '>
-        <h4 className='font-extrabold text-lg md:text-3xl lg:text-4xl'>
-          (MONU PANWAR)
-        </h4>
+    <Element name='home'>
+      <main className='flex w-full flex-col p-4 space-y-10 md:space-y-24 min-h-screen'>
+        <section className='relative flex flex-col justify-center gap-4 '>
+          <h4 className='font-extrabold text-lg md:text-3xl lg:text-4xl'>
+            (MONU PANWAR)
+          </h4>
 
-        <TextAnimate
-          className='capitalize text-center font-extrabold text-5xl md:text-8xl'
-          animation='blurInUp'
-          by='word'
-        >
-          FULL STACK DEVELOPER
-        </TextAnimate>
-      </section>
+          <TextAnimate
+            className='capitalize text-center font-extrabold text-5xl md:text-8xl'
+            animation='blurInUp'
+            by='word'
+          >
+            FULL STACK DEVELOPER
+          </TextAnimate>
+        </section>
 
-      {/* content */}
-      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10 p-4'>
-        {/* LEFT TEXT */}
-        <div className='lg:col-span-4 space-y-6 max-w-4xl px-4'>
-          <div className='text-2xl opacity-60'>
-            <Image src='/arrowdown.svg' alt='arrowup' height={4} width={20} />
-          </div>
+        {/* content */}
+        <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10 p-4'>
+          {/* LEFT TEXT */}
+          <div className='lg:col-span-4 space-y-6 max-w-4xl px-4'>
+            <div className='text-2xl opacity-60'>
+              <Image src='/arrowdown.svg' alt='arrowup' height={4} width={20} />
+            </div>
 
-          <h6 className='text-2xl md:mt-20 font-semibold  opacity-70  '>
-            I build scalable, high performance, production ready web
-            applications with clean, maintainable code from intuitive frontend
-            experiences to robust backend systems, APIs, databases, and
-            deployment workflows.
-          </h6>
+            <h6 className='text-2xl md:mt-20 font-semibold  opacity-70  '>
+              I build scalable, high performance, production ready web
+              applications with clean, maintainable code from intuitive frontend
+              experiences to robust backend systems, APIs, databases, and
+              deployment workflows.
+            </h6>
 
-          <button
+            {/* <button
             className='group inline-flex items-center gap-2
               rounded-full bg-black px-10 py-6
              text-white 
@@ -50,38 +55,45 @@ function Herosection() {
             >
               ↗
             </span>
-          </button>
-        </div>
+          </button> */}
 
-        {/* IMAGE */}
-        <div className='lg:col-span-4 flex justify-center'>
-          <div
-            className=' w-84 h-105
-          max-w-[320px]
-         sm:max-w-90
-          overflow-hidden
-          rounded-xl
-          bg-gray-300 '
-          >
-            <Image
-              src='/boy.jpg'
-              alt='Hero'
-              height={90}
-              width={820}
-              className='w-full h-full object-cover grayscale '
-            />
+            <InteractiveHoverButton className='px-10 py-4 active:scale-75  text-white bg-neutral-900 hover:scale-0.75 '>
+              <Link to='contact' smooth={true} duration={500}>
+                Contacts
+              </Link>
+            </InteractiveHoverButton>
           </div>
-        </div>
 
-        {/* RIGHT STATUS */}
-        <div className='flex flex-col  lg:col-span-4  h-full justify-end-safe items-start md:items-end text-left md:text-right '>
-          <h6 className='text-lg font-semibold uppercase tracking-widest opacity-70 whitespace-nowrap'>
-            Available for work
-          </h6>
-          <p className='text-4xl md:text-8xl font-bold'>JUN’25</p>
-        </div>
-      </section>
-    </main>
+          {/* IMAGE */}
+          <div className='lg:col-span-4 flex justify-center'>
+            <div
+              className=' w-100 h-115 
+
+
+          overflow-hidden
+          rounded-2xl
+          bg-purple-700 '
+            >
+              <Image
+                src='/boy1.jpg'
+                alt='Hero'
+                height={90}
+                width={820}
+                className='w-full h-full object-cover grayscale-50 '
+              />
+            </div>
+          </div>
+
+          {/* RIGHT STATUS */}
+          <div className='flex flex-col  lg:col-span-4  h-full justify-end-safe items-start md:items-end text-left md:text-right '>
+            <h6 className='text-lg font-semibold uppercase tracking-widest opacity-70 whitespace-nowrap'>
+              Available for work
+            </h6>
+            <p className='text-4xl md:text-8xl font-bold'>JUN’25</p>
+          </div>
+        </section>
+      </main>
+    </Element>
   );
 }
 
