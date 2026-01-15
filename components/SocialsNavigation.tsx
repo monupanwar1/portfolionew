@@ -9,12 +9,12 @@ const socialsNavigationItems = [
   },
   {
     name: 'Linkedin',
-    href: '/#',
+    href: 'https://www.linkedin.com/in/monu-panwar',
     decscription: '[1]',
   },
   {
     name: 'Github',
-    href: '/#',
+    href: 'https://github.com/monupanwar1',
     decscription: '[2]',
   },
 ];
