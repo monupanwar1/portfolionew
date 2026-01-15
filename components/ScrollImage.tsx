@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import DecryptedText from './DecryptedText';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 const cards: projectsCards[] = [
   {
@@ -34,7 +35,7 @@ const cards: projectsCards[] = [
     projectVideo: '/video4.mp4',
     projectName: 'Personal Portfolio',
     projectTitle: 'High-Performance Interactive Developer Portfolio',
-    exploreLink: 'https://yourdomain.com',
+    exploreLink: 'https://portfolionew-neon-zeta.vercel.app/',
   },
 ];
 
@@ -76,7 +77,7 @@ export default function ScrollStickyNormal() {
               />
               <div className='top-50 aspect-video mb-20 right-10 ml-10 absolute rounded-xl overflow-hidden'>
                 <video
-                  src={cards.projectVideo }
+                  src={cards.projectVideo}
                   autoPlay
                   muted
                   playsInline
@@ -90,7 +91,7 @@ export default function ScrollStickyNormal() {
                   <h1 className='font-medium text-white/85 text-sm'>
                     <DecryptedText
                       animateOn='view'
-                      text={cards.projectTitle }
+                      text={cards.projectTitle}
                     ></DecryptedText>
                     {/* {cards.projectTitle} */}
                   </h1>
@@ -102,9 +103,14 @@ export default function ScrollStickyNormal() {
                 <div className='flex  mt-2 md:items-center'>
                   {/* Explore Button */}
 
-                  <Button variant='secondary' className='px-6 py-2 text-black'>
-                    {cards.exploreLink ? 'Explore' : ''}
-                  </Button>
+                  <Link href={cards.exploreLink}>
+                    <Button
+                      variant='secondary'
+                      className='px-6 py-2 text-black'
+                    >
+                      {cards.exploreLink ? 'Explore' : ''}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
