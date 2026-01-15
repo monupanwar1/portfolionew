@@ -62,7 +62,15 @@ export default function Header() {
 
         {/* Desktop Resume */}
         <div className='hidden md:flex'>
-          <Button variant='default'>
+          <Button
+            variant='default'
+            onClick={() => {
+              window.open(
+                'https://drive.google.com/uc?export=download&id=110UNFdQG14TMnQJb5Yxu9rvH8YOpE1zz',
+                '_blank',
+              );
+            }}
+          >
             <TextRoll center>Downlaod Resume</TextRoll>
           </Button>
         </div>

@@ -1,40 +1,43 @@
 'use client';
 
+import { projectsCards } from '@/lib/type';
 import { useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import DecryptedText from './DecryptedText';
 import { Button } from './ui/button';
 
-const cards = [
+const cards: projectsCards[] = [
   {
     bgImage: '/bg1.jpg',
-    video: '/video1.mp4',
-    Name: 'Evento',
-    title: 'Evento Dj managment system',
-    exploreLink: '/adakdajdakdad/dadada',
+    projectVideo: '/video1.mp4',
+    projectName: 'Evento',
+    projectTitle: 'DJ Event Management Platform',
+    exploreLink: '/projects/evento',
   },
   {
     bgImage: '/bg2.jpg',
-    video: '/video1.mp4',
-    Name: 'Evento',
-    title: 'Evento Dj managment system',
-    exploreLink: '/adakdajdakdad/dadada',
+    projectVideo: '/video2.mp4',
+    projectName: 'Pawsoft',
+    projectTitle: 'Smart Pet Management System',
+    exploreLink: '/projects/pawsoft',
   },
   {
     bgImage: '/bg3.jpg',
-    video: '/video1.mp4',
-    Name: 'Evento',
-    title: 'Evento Dj managment system',
-    exploreLink: '/adakdajdakdad/dadada',
+    projectVideo: '/video3.mp4',
+    projectName: 'ProfilePilot',
+    projectTitle: 'AI-Powered Social Media Profile Generator',
+    exploreLink: '/projects/profilepilot',
   },
   {
     bgImage: '/bg4.jpg',
-    video: '/video1.mp4',
-    Name: 'Evento',
-    title: 'Evento Dj managment system',
-    exploreLink: '/adakdajdakdad/dadada',
+    projectVideo: '/video4.mp4',
+    projectName: 'Personal Portfolio',
+    projectTitle: 'High-Performance Interactive Developer Portfolio',
+    exploreLink: 'https://yourdomain.com',
   },
 ];
+
 
 export default function ScrollStickyNormal() {
   const triggers = cards.map(() => useRef<HTMLDivElement | null>(null));
@@ -60,10 +63,10 @@ export default function ScrollStickyNormal() {
       </div>
 
       {/* RIGHT SCROLL + STICKY CARDS */}
-      <div className='w-180 flex flex-col mx-auto md:mr-10 right-5 px-4'>
+      <div className='w-180 flex flex-col gap-40 mx-auto md:mr-10 right-5 px-4'>
         {cards.map((cards, i) => (
-          <div key={i} ref={triggers[i]} className=' space-y-30 flex flex-col'>
-            <div className='relative '>
+          <div key={i} ref={triggers[i]} className='space-y-50 flex flex-col'>
+            <div className='relative'>
               <Image
                 src={cards.bgImage}
                 alt='imgaes'
@@ -73,7 +76,7 @@ export default function ScrollStickyNormal() {
               />
               <div className='top-50 aspect-video mb-20 right-10 ml-10 absolute rounded-xl overflow-hidden'>
                 <video
-                  src={cards.video}
+                  src={cards.projectVideo }
                   autoPlay
                   muted
                   playsInline
@@ -81,14 +84,18 @@ export default function ScrollStickyNormal() {
                   className='w-full h-full object-cover md:object-contain'
                 />
               </div>
-              {/* </div> */}
+              {/* content */}
               <div className='px-4 mt-4 flex md:flex-row flex-col justify-between'>
                 <div>
-                  <h1 className='font-semibold text-white text-lg'>
-                    {cards.title}
+                  <h1 className='font-medium text-white/85 text-sm'>
+                    <DecryptedText
+                      animateOn='view'
+                      text={cards.projectTitle }
+                    ></DecryptedText>
+                    {/* {cards.projectTitle} */}
                   </h1>
                   <h4 className='text-white font-bold md:text-3xl text-4xl'>
-                    {cards.Name}
+                    {cards.projectName}
                   </h4>
                 </div>
 
@@ -98,13 +105,9 @@ export default function ScrollStickyNormal() {
                   <Button variant='secondary' className='px-6 py-2 text-black'>
                     {cards.exploreLink ? 'Explore' : ''}
                   </Button>
-
-                  {/* Deployment Badge */}
                 </div>
               </div>
             </div>
-
-            <div></div>
           </div>
         ))}
       </div>

@@ -74,7 +74,16 @@ export default function MobileNav({
                 </Link>
               ))}
 
-              <Button variant='default' className='mt-8'>
+              <Button
+                variant='default'
+                className='mt-8'
+                onClick={() => {
+                  window.open(
+                    'https://drive.google.com/uc?export=download&id=110UNFdQG14TMnQJb5Yxu9rvH8YOpE1zz',
+                    '_blank',
+                  );
+                }}
+              >
                 <TextRoll center>Resume</TextRoll>
               </Button>
             </div>
