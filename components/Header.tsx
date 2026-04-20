@@ -5,6 +5,7 @@ import { TextRoll } from '@/hooks/TextRoll';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-scroll';
 import MobileNav from './MobileNav';
+import { user } from '@/config/user';
 
 const navItems = [
   { label: 'Home', href: 'home' },
@@ -65,10 +66,7 @@ export default function Header() {
           <Button
             variant='default'
             onClick={() => {
-              window.open(
-                'https://drive.google.com/uc?export=download&id=110UNFdQG14TMnQJb5Yxu9rvH8YOpE1zz',
-                '_blank',
-              );
+              window.open(user.resume, '_blank');
             }}
           >
             <TextRoll center>Downlaod Resume</TextRoll>

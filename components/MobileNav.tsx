@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { user } from '@/config/user';
 import { TextRoll } from '@/hooks/TextRoll';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
@@ -78,10 +79,7 @@ export default function MobileNav({
                 variant='default'
                 className='mt-8'
                 onClick={() => {
-                  window.open(
-                    'https://drive.google.com/uc?export=download&id=110UNFdQG14TMnQJb5Yxu9rvH8YOpE1zz',
-                    '_blank',
-                  );
+                  window.open(user.resume, '_blank');
                 }}
               >
                 <TextRoll center>Resume</TextRoll>

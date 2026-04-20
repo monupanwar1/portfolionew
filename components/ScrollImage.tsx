@@ -3,12 +3,19 @@
 import { projectsCards } from '@/lib/type';
 import { useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import DecryptedText from './DecryptedText';
 import { Button } from './ui/button';
-import Link from 'next/link';
 
 const cards: projectsCards[] = [
+  {
+    bgImage: '/bg3.jpg',
+    projectVideo: '/video5.mp4',
+    projectName: 'Dinex',
+    projectTitle: 'Food Ordering Platform',
+    exploreLink: 'https://dinex-cyan.vercel.app/',
+  },
   {
     bgImage: '/bg1.jpg',
     projectVideo: '/video1.mp4',
@@ -38,7 +45,6 @@ const cards: projectsCards[] = [
     exploreLink: 'https://portfolionew-neon-zeta.vercel.app/',
   },
 ];
-
 
 export default function ScrollStickyNormal() {
   const triggers = cards.map(() => useRef<HTMLDivElement | null>(null));

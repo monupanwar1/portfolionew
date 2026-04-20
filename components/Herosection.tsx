@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Element, Link } from 'react-scroll';
 import { TextAnimate } from './ui/text-animate';
+import { user } from '@/config/user';
 
 function Herosection() {
   return (
@@ -13,14 +14,14 @@ function Herosection() {
             animation='blurInUp'
             by='word'
           >
-            (MONU PANWAR)
+            {user.name}
           </TextAnimate>
           <TextAnimate
             className='capitalize text-center font-extrabold text-5xl md:text-8xl'
             animation='blurInUp'
             by='word'
           >
-            FULL STACK DEVELOPER
+            {user.description}
           </TextAnimate>
         </section>
         {/* content */}
