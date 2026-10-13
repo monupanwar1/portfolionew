@@ -8,7 +8,7 @@ export default function SelectedWorks() {
   return (
     <Element name='works'>
       <section id='works' className='min-h-screen font-sans'>
-        <div className='relative overflow-hidden bg-[#080807] px-4 py-12 text-white md:px-8 md:py-20'>
+        <div className='relative overflow-hidden bg-[#080807] px-4 py-8 text-white md:px-8 md:py-20'>
           {/* SELECTED WORKS HEADING */}
           <div className='mb-10 grid grid-cols-1 gap-8 p-1 md:mb-14 md:grid-cols-2 md:gap-8 md:p-4'>
             {/* LEFT: HEADING */}
@@ -31,7 +31,7 @@ export default function SelectedWorks() {
             </div>
 
             {/* RIGHT: DESCRIPTION */}
-            <div className='mt-4 flex flex-col gap-6 md:mt-10 md:flex-row md:gap-8 lg:mt-12'>
+            <div className='mt-4 flex flex-col gap-6 md:flex-row md:gap-8 lg:mt-12'>
               <h3 className='shrink-0 text-xs font-bold uppercase tracking-[0.2em] text-lime-400 md:text-sm'>
                 <TextAnimate animation='blurInUp' by='word'>
                   (PROJECTS)
