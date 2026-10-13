@@ -9,7 +9,7 @@ import SkillsSection from '@/components/SkillsSection';
 
 export default function Home() {
   return (
-    <main className=' cursor-pointer'>
+    <main className='cursor-pointer'>
       <Header />
       <Herosection />
       <ServicesSection />

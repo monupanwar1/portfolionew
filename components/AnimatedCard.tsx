@@ -364,21 +364,19 @@ export default function AnimatedCard() {
           height: isLastCard ? 480 : 500,
           ease: 'power1.inOut',
         },
-        index === 0 ? 0 : `<+=0.15`,
+        index === 0 ? 0 : '<+=0.15',
       );
 
-      if (content) {
-        if (!isLastCard) {
-          tl.to(
-            content,
-            {
-              opacity: 1,
-              y: 0,
-              ease: 'power2.inOut',
-            },
-            '<+=0.1',
-          );
-        }
+      if (content && !isLastCard) {
+        tl.to(
+          content,
+          {
+            opacity: 1,
+            y: 0,
+            ease: 'power2.inOut',
+          },
+          '<+=0.1',
+        );
       }
     });
   }, []);
@@ -389,8 +387,8 @@ export default function AnimatedCard() {
   };
 
   return (
-    <section className='bg-[#080807] text-white overflow-hidden px-4'>
-      <div className='cards-wrapper md:ml-2 h-400 '>
+    <section className='overflow-hidden bg-[#080807] px-4 font-sans text-white'>
+      <div className='cards-wrapper h-400 md:ml-2'>
         {cards.map((card, index) => {
           const isLastCard = index === cards.length - 1;
           const isExpandedNow = expandedCard === index && isLastCard;
@@ -398,7 +396,7 @@ export default function AnimatedCard() {
           return (
             <div
               key={index}
-              className={`card relative overflow-hidden border-t border-muted-foreground h-155  ${
+              className={`card relative h-155 overflow-hidden border-t border-white/15 ${
                 isLastCard ? 'cursor-pointer' : ''
               }`}
               style={{
@@ -406,52 +404,59 @@ export default function AnimatedCard() {
                   isLastCard && isExpandedNow
                     ? '450px'
                     : isLastCard
-                    ? '450px'
-                    : '104px',
+                      ? '450px'
+                      : '104px',
                 willChange: 'height',
               }}
               onClick={isLastCard ? toggleLastCard : undefined}
             >
-              {/* HEADER — ALWAYS VISIBLE */}
-              <div className='flex card-header justify-items-start items-center gap-4 md:gap-150 py-6 md:py-6 '>
-                <h1 className='text-3xl md:text-5xl text-white/90 font-bold'>
+              {/* HEADER */}
+              <div className='card-header flex items-center justify-items-start gap-4 py-6 md:gap-10 md:py-6 lg:gap-16'>
+                <h2 className='shrink-0 text-base font-semibold tracking-tight text-lime-400 md:text-xl'>
                   {card.number}
-                </h1>
-                <h1 className='text-3xl md:text-5xl text-white/80 font-bold'>
+                </h2>
+
+                <h2 className='text-lg font-semibold tracking-tight text-white/90 transition-colors duration-300 hover:text-lime-300 sm:text-xl md:text-2xl'>
                   {card.title}
-                </h1>
+                </h2>
+
                 {isLastCard && (
-                  <span className='ml-auto text-sm opacity-60'>
-                    {isExpandedNow}
+                  <span
+                    className='ml-auto shrink-0 text-lg font-medium text-lime-400'
+                    aria-hidden='true'
+                  >
+                    {isExpandedNow ? '−' : '+'}
                   </span>
                 )}
               </div>
 
-              {/* CONTENT — HIDDEN INITIALLY FOR FIRST 2, ALWAYS VISIBLE FOR LAST */}
+              {/* CONTENT */}
               <div
-                className='card-content opacity-100 translate-y-0'
+                className='card-content translate-y-0 opacity-100'
                 style={{ willChange: 'opacity, transform' }}
               >
-                <div className='flex justify-end '>
-                  <div className='space-y-4 mt-4'>
-                    <p className='text-white/50 md:w-3xl font-semibold text-lg'>
+                <div className='flex justify-end'>
+                  <div className='mt-4 space-y-4'>
+                    <p className='text-sm font-medium leading-7 text-white/65 md:w-3xl md:text-base md:leading-8'>
                       {card.description}
                     </p>
+
                     {card.stack.map((item, i) => (
                       <div
                         key={i}
-                        className={` flex items-start space-x-6  pb-2 ${
+                        className={`flex items-start space-x-6 pb-2 ${
                           i < card.stack.length - 1
-                            ? 'border-b border-white/20'
+                            ? 'border-b border-white/10'
                             : ''
                         }`}
                       >
-                        <span className='text-sm font-bold text-white/50'>
+                        <span className='pt-1 text-xs font-semibold tabular-nums text-lime-400/80'>
                           {item.number}
                         </span>
-                        <h2 className='text-xl md:text-3xl text-white/70 font-bold'>
+
+                        <h3 className='text-sm font-medium leading-relaxed tracking-tight text-white/75 sm:text-base md:text-lg'>
                           {item.stacks}
-                        </h2>
+                        </h3>
                       </div>
                     ))}
                   </div>

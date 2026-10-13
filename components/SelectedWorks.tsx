@@ -1,45 +1,55 @@
 'use client';
+
 import { Element } from 'react-scroll';
 import ScrollImage from './ScrollImage';
 import { TextAnimate } from './ui/text-animate';
+
 export default function SelectedWorks() {
   return (
     <Element name='works'>
-      <section id='service min-h-screen'>
-        <div
-          id='services'
-          className='relative bg-[#080807]  text-white px-4 overflow-hidden'
-        >
-          {/* service----heading */}
-          <div className='grid grid-cols-1 md:grid-cols-2 p-4 mb-6 '>
-            <div className=''>
+      <section id='works' className='min-h-screen font-sans'>
+        <div className='relative overflow-hidden bg-[#080807] px-4 py-12 text-white md:px-8 md:py-20'>
+          {/* SELECTED WORKS HEADING */}
+          <div className='mb-10 grid grid-cols-1 gap-8 p-1 md:mb-14 md:grid-cols-2 md:gap-8 md:p-4'>
+            {/* LEFT: HEADING */}
+            <div>
+              <p className='mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-lime-400'>
+                My projects
+              </p>
+
               <TextAnimate
-                className='font-bold  text-white text-5xl md:text-7xl'
+                className='text-5xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl'
                 animation='blurInUp'
                 by='word'
               >
-                SELECTED WORKS /
+                SELECTED WORKS
               </TextAnimate>
+
+              <span className='text-5xl font-extrabold text-lime-400 sm:text-6xl md:text-7xl lg:text-8xl'>
+                .
+              </span>
             </div>
-            <div
-              className='md:inline-flex mt-4 md:mt-34 space-x-10  text-white/80
-           '
-            >
-              <h3 className='text-white text-xl font-medium'>
+
+            {/* RIGHT: DESCRIPTION */}
+            <div className='mt-4 flex flex-col gap-6 md:mt-10 md:flex-row md:gap-8 lg:mt-12'>
+              <h3 className='shrink-0 text-xs font-bold uppercase tracking-[0.2em] text-lime-400 md:text-sm'>
                 <TextAnimate animation='blurInUp' by='word'>
-                  (Projects)
+                  (PROJECTS)
                 </TextAnimate>
               </h3>
-              <h4 className='overflow-hidden text-xl/relaxed font-semibold md:pr-20 '>
+
+              <div className='max-w-3xl text-sm font-medium leading-7 text-white/65 md:pr-4 md:text-base md:leading-8 lg:pr-10'>
                 <TextAnimate animation='slideUp' by='word'>
-                  Thought fully crafted digital experiences that blend utility
-                  and aesthetics into something functional,memorable,and
+                  Thoughtfully crafted digital experiences that blend utility
+                  and aesthetics into something functional, memorable, and
                   refined.
                 </TextAnimate>
-              </h4>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* PROJECT CARDS — unchanged */}
         <ScrollImage />
       </section>
     </Element>

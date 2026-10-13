@@ -1,4 +1,6 @@
-'use client'
+
+'use client';
+
 import { TextRoll } from '@/hooks/TextRoll';
 import { Link } from 'react-scroll';
 
@@ -12,29 +14,30 @@ const menuNavigationItems = [
 
 export default function MenuNavigation() {
   return (
-    <section className='mt-2'>
+    <section className='mt-4 font-sans'>
       <ul className='space-y-4'>
-        {menuNavigationItems.map((item, index) => (
-          <Link
-            to={item.href}
-            smooth
-            duration={500}
-            offset={-120}
-            className='relative flex cursor-pointer flex-col'
-            key={index}
-            href={item.href}
-          >
-            <div className='relative flex '>
-              <TextRoll
-                center
-                className='text-muted-foreground uppercase leading-2.5'
-              >
-                {item.label}
-              </TextRoll>
-            </div>
-          </Link>
+        {menuNavigationItems.map((item) => (
+          <li key={item.href}>
+            <Link
+              to={item.href}
+              smooth
+              duration={500}
+              offset={-120}
+              className='group relative flex cursor-pointer flex-col'
+            >
+              <div className='relative flex'>
+                <TextRoll
+                  center
+                  className='text-neutral-700 transition-colors duration-200 hover:text-lime-600'
+                >
+                  {item.label}
+                </TextRoll>
+              </div>
+            </Link>
+          </li>
         ))}
       </ul>
     </section>
   );
 }
+

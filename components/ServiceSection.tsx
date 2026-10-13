@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Element } from 'react-scroll';
@@ -6,45 +7,55 @@ import { TextAnimate } from './ui/text-animate';
 
 export default function ServicesSection() {
   return (
-    <Element name='services'>
-      <section id='service '>
-        <div
-          id='services'
-          className='relative bg-[#080807]  text-white px-4 overflow-hidden'
-        >
-          {/* service----heading */}
-          <div className='grid grid-cols-1 md:grid-cols-2 p-4 mb-6 '>
-            <div className=''>
+    <Element name="services">
+      <section id="services" className="font-sans">
+        <div className="relative overflow-hidden bg-[#080807] px-4 py-20 text-white md:px-8 md:py-28">
+          {/* SERVICES HEADING */}
+          <div className="mb-10 grid grid-cols-1 gap-8 p-1 md:mb-14 md:grid-cols-2 md:gap-8 md:p-4">
+            <div>
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-lime-400">
+                What I offer
+              </p>
+
               <TextAnimate
-                className='font-bold  text-white text-5xl md:text-8xl'
-                animation='blurInUp'
-                by='word'
+                className="text-5xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
+                animation="blurInUp"
+                by="word"
               >
-                WHAT I DO /
+                WHAT I DO
               </TextAnimate>
+
+              <span className="text-5xl font-extrabold text-lime-400 sm:text-6xl md:text-7xl lg:text-8xl">
+                .
+              </span>
             </div>
-            <div
-              className='md:inline-flex mt-4 md:mt-34 space-x-10  text-white/80
-        '
-            >
-              <h3 className='text-white font-medium text-xl'>
-                <TextAnimate animation='blurInUp' by='word'>
-                  (services)
+
+            {/* SERVICES DESCRIPTION */}
+            <div className="mt-4 space-y-6 md:mt-28 md:flex md:gap-8 md:space-y-0">
+              <h3 className="shrink-0 text-sm font-bold uppercase tracking-[0.2em] text-lime-400">
+                <TextAnimate animation="blurInUp" by="word">
+                  (SERVICES)
                 </TextAnimate>
               </h3>
-              <h4 className='overflow-hidden text-xl/relaxed font-semibold md:pr-20 '>
-                <TextAnimate animation='slideUp' by='word'>
-                  I specialize inbuilding full-stack web applications that are
-                  fast, reliable , and user-friendly.With a solid foundation in
-                  both frontend and backend technologies , I help bring ideas to
-                  life whether it's for a business,a startup,or a product team.
+
+              <h4 className="max-w-3xl text-sm font-medium leading-7 text-white/60 sm:text-base sm:leading-8 md:pr-4 lg:pr-10">
+                <TextAnimate animation="slideUp" by="word">
+                  I specialize in building full-stack web applications that are
+                  fast, reliable, and user-friendly. With a solid foundation in
+                  both frontend and backend technologies, I help bring ideas to
+                  life for businesses, startups, and product teams.
                 </TextAnimate>
               </h4>
             </div>
           </div>
-          <AnimatedCard />
+
+          {/* SERVICE CARDS */}
+          <div className="[&>*]:transition-colors [&>*]:duration-300">
+            <AnimatedCard />
+          </div>
         </div>
       </section>
     </Element>
   );
 }
+
